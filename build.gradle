@@ -1,0 +1,31 @@
+plugins {
+	id 'org.springframework.boot' version '2.2.0.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+	id 'java'
+	//Added to prevent all the files in the classpath being loaded at runtime
+	id "ua.eshepelyuk.ManifestClasspath" version "1.0.0"
+}
+
+group = 'com.nerdylegend'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	// https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk
+    compile group: 'com.amazonaws', name: 'aws-java-sdk', version: '1.11.655'
+
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+}
+
+test {
+	useJUnitPlatform()
+}
