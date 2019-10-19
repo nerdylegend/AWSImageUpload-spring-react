@@ -91,7 +91,7 @@ public class UserProfileService {
     public byte[] downloadUserProfileImage(UUID userProfileId) {
         var user = getUserProfile(userProfileId);
 
-        String path = String.format("%s/%s/",
+        String path = String.format("%s/%s",
                 BucketName.PROFILE_NAME.getBucketName(),
                 user.getUserProfileId());
 
